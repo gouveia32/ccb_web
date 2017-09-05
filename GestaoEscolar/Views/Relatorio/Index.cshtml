@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLista.cshtml";
+}
+
+<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui-1.11.4.js"></script>
+
+
+<div class="row">
+    <div class="col-sm-4">
+        @using (Ajax.BeginForm("Index", "Relatorio", new AjaxOptions { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "DivListaRelatorio" }))
+        {
+            <div class="editor-label">
+                <strong>Localizar relatório</strong>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" name="termoBusca" id="termoBusca" placeholder="Buscar por...">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default"><span class="fa fa-search"></span></button>
+                </span>
+            </div>
+        }
+    </div>
+    @Html.Partial("_ListaRelatorio")
+</div>
+
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

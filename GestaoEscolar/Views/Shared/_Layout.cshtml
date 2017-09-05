@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="windows-1252" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="/Content/themes/base/accordion.css" rel="stylesheet" />
+    <link href="/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="/Content/themes/base/base.css" rel="stylesheet" />
+    <link href="/Content/themes/base/button.css" rel="stylesheet" />
+    <link href="/Content/themes/base/core.css" rel="stylesheet" />
+    <link href="/Content/themes/base/resizable.css" rel="stylesheet" />
+    <link href="/Content/themes/base/selectable.css" rel="stylesheet" />
+    <link href="/Content/themes/base/dialog.css" rel="stylesheet" />
+    <link href="/Content/themes/base/slider.css" rel="stylesheet" />
+    <link href="/Content/themes/base/tabs.css" rel="stylesheet" />
+    <link href="/Content/themes/base/datepicker.css" rel="stylesheet" />
+    <link href="/Content/themes/base/progressbar.css" rel="stylesheet" />
+    <link href="/Content/themes/base/theme.css" rel="stylesheet" />
+
+    <script src="/Scripts/modernizr-2.8.3.js"></script>
+
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.css" rel="stylesheet" />
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/jquery-2.1.4.js"></script>
+    <script src="/Scripts/site.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/respond.js"></script>
+    <script src="/Scripts/jquery.metisMenu.js"></script>
+
+
+
+</head>
+<body>
+
+    @Html.Partial("_Menu")
+
+
+
+
+    <section class="container">
+        @RenderBody()
+    </section>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

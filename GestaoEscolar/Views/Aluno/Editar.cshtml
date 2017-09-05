@@ -1,0 +1,91 @@
+﻿@model GestaoEscolar.Models.Aluno
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+<script>
+    $(function ($) {
+        $(".input-group-addon").tooltip();
+    });
+
+    $(function () {
+        $('.ajuda-data').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        });
+    });
+
+    jQuery(function ($) {
+        $("#IdentificacaoUnica").mask("999999");
+        $("#DataNascimento").mask("99/99/9999");
+        $("#Nis").mask("99999999999");
+        $("#DataExpRg").mask("99/99/9999");
+        $("#NumeroNovaCertidaoCivil").mask("999999-99-99-9999-9-99999-999-9999999-99");
+        $("#DataEmissaoCertidao").mask("99/99/9999");
+        $("#CepResidencia").mask("99999-999");
+        $("#Cpf").mask("999.999.999-99");
+        $("#TelPai").mask("(99)9999-9999");
+        $("#TelMae").mask("(99)9999-9999");
+    });
+
+    $(function () {
+        $('#EstadoCivilAluno').val("@Model.EstadoCivilAluno");
+        $('#Situacao').val("@Model.Situacao");
+        $('#Sexo').val("@Model.Sexo");
+        $('#RacaCor').val("@Model.RacaCor");
+        $('#Situacao').val("@Model.Situacao");
+        $('#UfNaturalidade').val("@Model.UfNaturalidade");
+        $('#LocalZonaResidencia').val("@Model.LocalZonaResidencia");
+        $('#UfResidencia').val("@Model.UfResidencia");
+        $('#UfRg').val("@Model.UfRg");
+        $('#TipoCertidaoCivil').val("@Model.TipoCertidaoCivil");
+    });
+
+</script>
+
+<div class="panel panel-heading">
+    <strong><span class="fa fa-plus-sign"></span><span>&nbsp;</span>Editar Aluno</strong>
+</div>
+
+@using (Html.BeginForm(new { @class = "form-inline" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    
+    @Html.HiddenFor(model => model.Id)
+
+    @Html.Partial("_PartialFormAluno");
+
+
+    <div class="panel panel-footer">
+        <div class="row">
+            <div class="col-xs-5">
+                <h5><strong>Atenção!</strong> O campo com <i class="fa fa-asterisk text-danger"></i>é obrigatório</h5>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1">
+                <a class="btn btn-block btn-lg btn-danger" href="@Url.Action("Index")"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>
+            </div>
+            <div class="col-xs-3">
+                <button type="submit" class="btn btn-block btn-lg btn-success" value="Adicionar"><span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryform")
+    @Scripts.Render("~/Scripts/bootstrap-tooltip.js")
+    @Scripts.Render("~/Scripts/jquery.maskedinput.min.js")
+}
