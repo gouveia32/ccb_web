@@ -1,0 +1,76 @@
+﻿@model ccb_web.Models.Funcionario
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $('.ajuda-data').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        });
+
+    });
+
+    jQuery(function ($) {
+        $("#DataNascimentoFuncionario").mask("99/99/9999");
+        $("#CepEndFuncionario").mask("99999-999");
+        $("#CpfFuncionario").mask("999.999.999-99");
+        $("#DataEmissaoRgFuncionario").mask("99/99/9999");
+        $("#DataAdimissaoFuncionario").mask("99/99/9999");
+        $("#TelPai").mask("(99)9999-9999");
+    });
+
+    $(function () {
+        $('#SexoFuncionario').val("@Model.SexoFuncionario");
+        $('#UfRgFuncionario').val("@Model.UfRgFuncionario");
+        $('#UfEndFuncionario').val("@Model.UfEndFuncionario");
+        $('#EscolaId').val("@Model.EscolaId");
+        $('#TipoFuncionarioId').val("@Model.TipoFuncionarioId");
+
+    });
+
+</script>
+
+
+<div class="panel panel-heading">
+    <strong><span class="glyphicon glyphicon-edit"></span><span>&nbsp;</span>Editar Funcionário</strong>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.Partial("_PartialFormFuncionario");
+
+    <div class="panel panel-footer">
+        <div class="row">
+            <div class="col-xs-5">
+                <h5><strong>Atenção!</strong> O campo com <i class="fa fa-asterisk text-danger"></i>é obrigatório</h5>
+            </div>
+            <div class="col-xs-3 col-xs-offset-1">
+                <a class="btn btn-block btn-lg btn-danger" href="@Url.Action("Index")"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>
+            </div>
+            <div class="col-xs-3">
+                <button type="submit" class="btn btn-block btn-lg btn-success" value="Adicionar"><span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryform")
+    @Scripts.Render("~/Scripts/bootstrap-tooltip.js")
+    @Scripts.Render("~/Scripts/jquery.maskedinput.min.js")
+}

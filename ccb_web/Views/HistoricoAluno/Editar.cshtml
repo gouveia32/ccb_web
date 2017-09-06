@@ -1,0 +1,97 @@
+﻿@model ccb_web.Models.HistoricoAluno
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+<script>
+    $(document).ready(function () {
+        $('#AlunoId').addClass("form-control");
+    });
+
+    jQuery(function ($) {
+        $("#DataHistoricoAluno").mask("99/99/9999");
+    });
+
+    $(function () {
+        $('#TurmaAnoHistorico').val("@Model.TurmaAnoHistorico");
+        $('#UfEscolaAnoAluno').val("@Model.UfEscolaAnoAluno");
+        $('#AprovPortugues').val("@Model.AprovPortugues");
+        $('#AprovMatematica').val("@Model.AprovMatematica");
+        $('#AprovGeografia').val("@Model.AprovGeografia");
+        $('#AprovHistoria').val("@Model.AprovHistoria");
+        $('#AprovCiencia').val("@Model.AprovCiencia");
+        $('#AprovEduFisica').val("@Model.AprovEduFisica");
+        $('#AprovEnsReligioso').val("@Model.AprovEnsReligioso");
+        $('#AprovArte').val("@Model.AprovArte");
+        $('#AprovInformatica').val("@Model.AprovInformatica");
+        $('#AprovLitInfantilJuvenil').val("@Model.AprovLitInfantilJuvenil");
+        $('#AprovAtividadeLingMat').val("@Model.AprovAtividadeLingMat");
+        $('#AprovAtividadesEspMot').val("@Model.AprovAtividadesEspMot");
+        $('#AprovFormacaoPessoal').val("@Model.AprovFormacaoPessoal");
+        $('#SituacaoAluno').val("@Model.SituacaoAluno");
+    });
+
+    $(function () {
+        $('.ajuda-data').datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+        });
+
+    });
+
+</script>
+
+
+<div class="panel panel-heading">
+    <strong><span class="glyphicon glyphicon-plus-sign"></span><span>&nbsp;</span>Editar Histórico</strong>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.AlunoId)
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Aluno.Nome)
+    </div>
+    <div class="editor-field">
+        @Html.DisplayFor(model => model.Aluno.Nome)
+    </div>
+
+        <div class="panel-body panel-scroll">
+
+            @Html.Partial("_PartialFormHistorico")
+
+        </div>
+        <div class="panel panel-footer">
+            <div class="row">
+                <div class="col-sm-5">
+                    <h5><strong>Atenção!</strong> O campo com <i class="fa fa-asterisk text-danger"></i>é obrigatório</h5>
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <a class="btn btn-block btn-lg btn-danger" href="@Url.Action("ListaHistoricoAluno",new { Id = Model.AlunoId })"><span class="glyphicon glyphicon-remove"></span>Cancelar</a>
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-block btn-lg btn-success" value="Adicionar"><span class="glyphicon glyphicon-floppy-disk"></span>Salvar</button>
+                </div>
+            </div>
+        </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+}

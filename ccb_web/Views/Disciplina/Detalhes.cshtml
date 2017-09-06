@@ -1,0 +1,35 @@
+﻿@model ccb_web.Models.Disciplina
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+<script>
+    $(function () {
+        document.getElementById("NomeDisciplina").disabled = true;
+        document.getElementById("MaximoPontos").disabled = true;
+        document.getElementById("MediaPontos").disabled = true;
+        document.getElementById("MinimoPonto").disabled = true;
+    });
+</script>
+
+<div class="panel panel-heading">
+    <strong><span class="glyphicon glyphicon-cog"></span><span>&nbsp;</span>Escola</strong>
+</div>
+
+<div class="panel-body panel-scroll">
+    @Html.Partial("_PartialFormDisc");
+</div>
+
+<div class="panel panel-footer">
+    <div class="row">
+        <div class="col-sm-3 col-sm-offset-6">
+            <a class="btn btn-block btn-lg btn-default" href="@Url.Action("Index")"><span class="fa fa-reply"></span><span>&nbsp;</span>Voltar</a>
+        </div>
+        <div class="col-sm-3">
+            <a class="btn btn-block btn-lg btn-primary" href="@Url.Action("Editar", new { id = Model.Id })"><span class="fa fa-edit"></span><span>&nbsp;</span>Editar</a>
+        </div>
+    </div>
+</div>
+

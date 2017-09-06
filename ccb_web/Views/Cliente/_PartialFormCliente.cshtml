@@ -1,0 +1,190 @@
+﻿@model ccb_web.Models.Cliente
+
+<script>
+    $(document).on('click', '.panel-heading span.clickable', function (e) {
+        var $this = $(this);
+        if (!$this.hasClass('panel-collapsed')) {
+            $this.parents('.panel').find('.panel-body').slideUp();
+            $this.addClass('panel-collapsed');
+            $this.find('i').removeClass('fa-chevron-circle-up').addClass('fa-chevron-circle-down');
+        } else {
+            $this.parents('.panel').find('.panel-body').slideDown();
+            $this.removeClass('panel-collapsed');
+            $this.find('i').removeClass('fa-chevron-circle-down').addClass('fa-chevron-circle-up');
+        }
+    })
+</script>
+
+<div class="panel-body panel-scroll">
+    <div class="panel panel-default">
+        <div class="panel panel-heading">
+            <h3 class="panel-title">
+                Dados Principais
+                <span class="pull-right clickable"><i class="fa fa-chevron-circle-up"></i></span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="editor-label">
+                        <i class="fa fa-asterisk text-danger"></i>
+                        @Html.LabelFor(model => model.Nome)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Nome, new { @class = "form-control , upper", @placeholder = "Nome do cliente" })
+                        @Html.ValidationMessageFor(model => model.Nome)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Contato_Funcao)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Contato_Funcao, new { @class = "form-control , upper", @placeholder = "Nome do gestor" })
+                        @Html.ValidationMessageFor(model => model.Contato_Funcao)
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Contato_Nome)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Contato_Nome, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Contato_Nome)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel panel-heading">
+            <h3 class="panel-title">
+                Dados de Endereço
+                <span class="pull-right clickable"><i class="fa fa-chevron-circle-up"></i></span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Endereco)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Endereco, new { @class = " form-control , upper", @placeholder = "Rua, Av, Travessa" })
+                        @Html.ValidationMessageFor(model => model.Endereco)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Cidade)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Cidade, new { @class = " form-control", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Cidade)
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Estado)
+                    </div>
+                    <div class="editor-field">
+                        <select class="form-control" name="Estado" id="Estado">
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Estado)
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Cep)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Cep, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Cep)
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Email)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Email, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Telefone1)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Telefone1, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Telefone1)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Telefone2)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Telefone2, new { @class = " form-control", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Telefone2)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Telefone3)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBoxFor(model => model.Telefone3, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Telefone3)
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Obs)
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextAreaFor(model => model.Obs, new { @class = " form-control , upper", @placeholder = "" })
+                        @Html.ValidationMessageFor(model => model.Obs)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

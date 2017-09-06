@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ccb_web.Models.Bimestre>
+@{
+    ViewBag.Title = "Boletim";
+}
+<div class="center-block col-lg-10">
+    <table class="table table-condensed table-bordered">
+        <tr>
+            <td colspan="16">
+                <div class="row">
+                    <div class="col-xs-2">
+                    </div>
+                    <div class="col-xs-6">
+                        PREFEITURA MUNICIPAL DE MACHADO<br />
+                        SECRETARIA MUNICIPAL DE EDUCAÇÃO<br />
+                        E. M. CLOVIS ARAUJO DIAS
+                    </div>
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-3">
+                        <strong>BOLETIM ESCOLAR</strong>
+                        <br />
+                        Ano Letivo: @ViewBag.AnoLetivo
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <strong>Aluno:</strong><br />
+                @ViewBag.Aluno
+            </td>
+            <td colspan="4">
+                <strong>Turno:</strong><br />
+                @ViewBag.Turno
+            </td>
+            <td colspan="4">
+                <strong>Serie:</strong><br />
+                @ViewBag.Serie
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <strong>Professor:</strong><br />
+                @ViewBag.NomeResponsavel
+            </td>
+            <td colspan="4">
+                <strong>Curso:</strong><br />
+                @ViewBag.Nivel
+            </td>
+            <td colspan="4"><strong>Periodo:</strong><br />@ViewBag.Periodo</td>
+        </tr>
+        <tr>
+            <td colspan="16"><strong>Base Nacional Comum</strong></td>
+        </tr>
+        <tr class="text-center">
+            <td colspan="2"><strong>Português&nbsp;&nbsp;&nbsp;&nbsp;</strong><hr />@ViewBag.ConLinPortuguesa</td>
+            <td colspan="2"><strong>Matemática</strong><hr />@ViewBag.ConMatematica</td>
+            <td colspan="2"><strong>Geografia&nbsp;</strong><hr />@ViewBag.ConGeografia</td>
+            <td colspan="2"><strong>História&nbsp;&nbsp;</strong><hr />@ViewBag.ConHistoria</td>
+            <td colspan="2"><strong>Ciências&nbsp;&nbsp;&nbsp;</strong><hr />@ViewBag.ConCiencias</td>
+            <td colspan="2"><strong>Ed. Fisica</strong><hr />@ViewBag.ConEdFisica</td>
+            <td colspan="2"><strong>En. Religioso</strong><hr />@ViewBag.ConEnReligioso</td>
+            <td colspan="2"><strong>&nbsp;&nbsp;Artes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><hr />@ViewBag.ConArte</td>
+        </tr>
+        <tr>
+            <td colspan="6"><strong>Parte Diversificada</strong></td>
+            <td colspan="10"><strong>Processo de Formação: S - N - AV</strong></td>
+        </tr>
+        <tr class="text-center">
+            <td colspan="2"><strong>Informática</strong><hr />@ViewBag.ConInformatica</td>
+            <td colspan="2"><strong>Lit.Inf. Juvenil</strong><hr />@ViewBag.ConLitInfJuvenil</td>
+            <td colspan="2"><strong></strong><br /></td>
+            <td colspan="2">
+                <strong>
+                    ATITUDES E<br />
+                    VALORES
+                </strong>
+                <hr />
+                @ViewBag.AtitVal
+            </td>
+            <td colspan="2">
+                <strong>COMPROMISSO/<br />ASSIDUIDADE</strong><hr />@ViewBag.CompAssid
+            </td>
+            <td colspan="2">
+                <strong>CRIATIVIDADE/<br />CRITICIDADE</strong><hr />@ViewBag.CriCriti
+            </td>
+            <td colspan="2">
+                <strong>
+                    PARTICIPACAO<br />
+                    DA FAMILIA
+                </strong>
+                <hr />
+                @ViewBag.PartFamilia
+            </td>
+            <td colspan="2">
+                <strong>
+                    TOTAL<br /> FALTAS
+                </strong>
+                <hr />
+                @ViewBag.Falta
+            </td>
+
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,75 @@
+﻿@model ccb_web.Models.HistoricoAluno
+
+@{
+    ViewBag.Title = "Detalhes";
+    Layout = "~/Views/Shared/_LayoutPadrao.cshtml";
+}
+
+<script>
+    jQuery(function ($) {
+        $("#DataHistoricoAluno").mask("99/99/9999");
+    });
+
+    $(function () {
+        
+        document.getElementById("AnoHistoricoAluno").disabled = true;
+        document.getElementById("TurmaAnoHistorico").disabled = true;
+        document.getElementById("DataHistoricoAluno").disabled = true;
+        document.getElementById("EscolaAnoAluno").disabled = true;
+        document.getElementById("CidadeEscolaAnoAluno").disabled = true;
+        document.getElementById("UfEscolaAnoAluno").disabled = true;
+        document.getElementById("DiasLetivos").disabled = true;
+        document.getElementById("QtdFaltaHoraAnoBasica").disabled = true;
+        document.getElementById("QtdFaltaHoraAnoParte").disabled = true;
+        document.getElementById("QtdFaltaHoraAnoProjeto").disabled = true;
+        document.getElementById("ChCurricularBasica").disabled = true;
+        document.getElementById("ChCurricularArtes").disabled = true;
+        document.getElementById("ChCurricularInformatica").disabled = true;
+        document.getElementById("ChCurricularLitInfantoJuvenil").disabled = true;
+        document.getElementById("ChCurricularProjetoTempoIntegral").disabled = true;
+        document.getElementById("AprovPortugues").disabled = true;
+        document.getElementById("AprovMatematica").disabled = true;
+        document.getElementById("AprovGeografia").disabled = true;
+        document.getElementById("AprovHistoria").disabled = true;
+        document.getElementById("AprovCiencia").disabled = true;
+        document.getElementById("AprovEduFisica").disabled = true;
+        document.getElementById("AprovEnsReligioso").disabled = true;
+        document.getElementById("AprovArte").disabled = true;
+        document.getElementById("AprovInformatica").disabled = true;
+        document.getElementById("AprovLitInfantilJuvenil").disabled = true;
+        document.getElementById("AprovAtividadeLingMat").disabled = true;
+        document.getElementById("AprovAtividadesEspMot").disabled = true;
+        document.getElementById("AprovFormacaoPessoal").disabled = true;
+        document.getElementById("SituacaoAluno").disabled = true;
+    });
+
+
+</script>
+
+<div class="panel panel-heading">
+    <strong><span class="fa fa-cog"></span><span>&nbsp;</span>Detalhe do histórico Aluno</strong>
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Aluno.Nome)
+</div>
+<div class="editor-field">
+    @Html.DisplayFor(model => model.Aluno.Nome)
+</div>
+
+<div class="panel-body panel-scroll">
+    @Html.Partial("_PartialFormHistorico")
+</div>
+
+<div class="panel panel-footer">
+    <div class="row">
+        <div class="col-sm-5">
+        </div>
+        <div class="col-sm-3 col-sm-offset-1">
+            <a class="btn btn-block btn-lg btn-default" href="@Url.Action("ListaHistoricoAluno",new { Id = Model.AlunoId })"><span class="fa fa-reply"></span><span>&nbsp;</span>Voltar</a>
+        </div>
+        <div class="col-sm-3">
+            <a class="btn btn-block btn-lg btn-primary" href="@Url.Action("Editar", new { id = Model.Id })"><span class="fa fa-edit"></span><span>&nbsp;</span>Editar</a>
+        </div>
+    </div>
+</div>
